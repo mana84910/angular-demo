@@ -14,13 +14,23 @@
 
     <mat-form-field class="add-age">
       <mat-select placeholder="年齡">
-        <mat-option>None</mat-option>
+        <mat-option
+          *ngFor="let age of ages"
+          value="age"
+        >
+          {{ age }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field class="add-job">
       <mat-select placeholder="職稱">
-        <mat-option>None</mat-option>
+        <mat-option
+          *ngFor="let job of jobs"
+          value="job"
+        >
+          {{ job }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
 

@@ -26,6 +26,22 @@ export class PersonService {
     );
   }
 
+  // 取得年齡下拉選單
+  getAge(): Observable<Number[]> {
+    return this.http.get<Number[]>('api/age')
+    .pipe(
+      catchError(this.handleError('getAge', []))
+    );
+  }
+
+  // 取得職稱
+  getJobTitle(): Observable<String[]> {
+    return this.http.get<String[]>('api/jobTitle')
+    .pipe(
+      catchError(this.handleError('getJobTitle', []))
+    );
+  }
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

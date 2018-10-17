@@ -7,6 +7,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
   createDb() {
 
+    // 角色
     const persons = [
       {id: 1, name: 'Alice', age: 25, jobTitle: 'UI/UX設計師'},
       {id: 2, name: 'Bob', age: 32, jobTitle: '工程師 Engineer'},
@@ -20,7 +21,23 @@ export class InMemoryDataService implements InMemoryDbService {
       {id: 10, name: 'Nelson', age: 35, jobTitle: 'PM'}
     ];
 
-    return {persons};
+    // 年齡
+    const age = [];
+    for (let i = 0; i < 101; i++) {
+      age.push(i);
+    }
+
+    // 職稱
+    const jobTitle = [
+      '專案助理 Project Assistant',
+      'UI/UX設計師',
+      '工程師 Engineer',
+      'PM',
+      '系統分析師 SA',
+      '經理 Manger'
+    ];
+
+    return {persons, age, jobTitle};
   }
 
   // Overrides the genId method to ensure that a personnal always has an id.

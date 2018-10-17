@@ -13,15 +13,39 @@ import { PersonService } from '../shared/service/person.service';
 })
 export class EditAreaComponent implements OnInit {
 
+  // 年齡下拉選單
+  ages: Number[] = [];
+
+  // 職稱下拉選單
+  jobs: String[] = [];
+
   // 角色資料
-  dataSource: PersonData[] = null;
+  dataSource: PersonData[] = [];
 
   constructor(
     private personSvc: PersonService
   ) { }
 
   ngOnInit() {
+    this.getAge();
+    this.getJobTitle();
     this.getPersons();
+  }
+
+  // 取得年齡下拉選單
+  getAge(): void {
+    this.personSvc.getAge()
+    .subscribe(res => {
+    this.ages = res;
+    });
+  }
+
+  // 取得職稱
+  getJobTitle(): void {
+    this.personSvc.getJobTitle()
+    .subscribe(res => {
+      this.jobs = res;
+    });
   }
 
   // 取得角色清單
