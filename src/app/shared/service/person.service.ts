@@ -61,6 +61,13 @@ export class PersonService {
     );
   }
 
+  // 變更角色資料
+  updatePerson (person: Person): Observable<Person> {
+    return this.http.put<Person>(this.personsUrl, person, httpOptions).pipe(
+      catchError(this.handleError<Person>('updatePerson'))
+    );
+  }
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

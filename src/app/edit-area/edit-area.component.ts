@@ -20,6 +20,9 @@ export class EditAreaComponent implements OnInit {
   // 新增表單
   addForm: FormGroup = null;
 
+  // 變更表單
+  editForm: FormGroup = null;
+
   // 年齡下拉選單
   ages: Number[] = [];
 
@@ -28,6 +31,9 @@ export class EditAreaComponent implements OnInit {
 
   // 角色資料
   dataSource: PersonData[] = [];
+
+  // 變更區塊是否顯示
+  isEditShow = false;
 
   constructor(
     private fb: FormBuilder,
@@ -38,6 +44,7 @@ export class EditAreaComponent implements OnInit {
 
     // 初始化表單
     this.addForm = this.initAddForm();
+    this.editForm = this.initEditForm();
 
     // 取得資料
     this.getAge();
@@ -55,6 +62,18 @@ export class EditAreaComponent implements OnInit {
       ],
       addAge: null,
       addJob: ''
+    });
+  }
+
+  initEditForm(): FormGroup {
+    return this.fb.group({
+      id: null,
+      editName: [
+        '',
+        [ Validators.required ]
+      ],
+      editAge: null,
+      editJob: ''
     });
   }
 
@@ -108,6 +127,43 @@ export class EditAreaComponent implements OnInit {
       addAge: null,
       addJob: ''
     });
+  }
+
+  // 按下角色時執行
+  edit(person: PersonData): void {
+    this.isEditShow = true;
+    this.editForm.patchValue({
+      id: person.idData,
+      editName: person.nameData,
+      editAge: person.ageData,
+      editJob: person.jobData
+    });
+  }
+
+  // 取消按鈕
+  cancel(): void {
+    this.isEditShow = false;
+    this.reset();
+  }
+
+  // 儲存變更按鈕
+  update(): void {
+    const data = this.editForm.getRawValue();
+    const person: Person = {
+      id: data.id,
+      name: data.editName,
+      age: data.editAge,
+      jobTitle: data.editJob
+    };
+    this.personSvc.updatePerson(person).subscribe(
+      () => {
+
+        this.cancel();
+
+        // 表單刷新
+        this.getPersons();
+      }
+    );
   }
 
   // 刪除角色

@@ -2,13 +2,13 @@
   margin: 20px;
 }
 
-.add-name, .add-age, .add-job {
+.add-name, .add-age, .add-job, .edit-name, .edit-age, .edit-job {
   width: 200px;
   height: 40px;
   margin: 0 20px 10px 0;
 }
 
-.add-job {
+.add-job, .edit-job {
   margin-bottom: 25px;
 }
 
@@ -27,6 +27,10 @@ ul {
     background-color: #eee;
     font-size: 14px;
     cursor: pointer;
+
+    a {
+      display: block;
+    }
 
     span {
       display: inline-block;
@@ -50,5 +54,11 @@ ul {
   li:hover {
     color: #607D8B;
     background-color: #DDD;
+  }
+}
+
+.button-row {
+  button:first-child {
+    margin-right: 10px;
   }
 }
