@@ -17,8 +17,8 @@ import { Person } from '../shared/interface/person';
 })
 export class EditAreaComponent implements OnInit {
 
-  // 表單
-  editForm: FormGroup = null;
+  // 新增表單
+  addForm: FormGroup = null;
 
   // 年齡下拉選單
   ages: Number[] = [];
@@ -37,7 +37,7 @@ export class EditAreaComponent implements OnInit {
   ngOnInit() {
 
     // 初始化表單
-    this.editForm = this.initEditForm();
+    this.addForm = this.initAddForm();
 
     // 取得資料
     this.getAge();
@@ -47,7 +47,7 @@ export class EditAreaComponent implements OnInit {
   }
 
   // 初始化表單
-  initEditForm(): FormGroup {
+  initAddForm(): FormGroup {
     return this.fb.group({
       addName: [
         '',
@@ -84,7 +84,7 @@ export class EditAreaComponent implements OnInit {
 
   // 新增角色
   addPerson(): void {
-    const data = this.editForm.getRawValue();
+    const data = this.addForm.getRawValue();
     const per: Person = {
       id: null,
       name: data.addName,
@@ -103,12 +103,11 @@ export class EditAreaComponent implements OnInit {
 
   // reset
   reset(): void {
-    this.editForm.patchValue({
+    this.addForm.reset({
       addName: '',
       addAge: null,
       addJob: ''
     });
-    this.editForm.markAsUntouched();
   }
 
   // 刪除角色
