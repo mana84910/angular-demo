@@ -5,6 +5,7 @@ import { RouterModule, Routes, Route } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { ListComponent } from './list/list.component';
+import { EditAreaComponent } from './edit-area/edit-area.component';
 
 // 無定義的路徑皆導回首頁
 const fullbackRoute: Route = {
@@ -34,6 +35,10 @@ const dashboardRoute: Route = {
     {
       path: 'list',
       component: ListComponent
+    },
+    {
+      path: 'edit-area',
+      component: EditAreaComponent
     }
   ]
 };

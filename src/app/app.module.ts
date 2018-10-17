@@ -25,6 +25,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { ListComponent } from './list/list.component';
+import { EditAreaComponent } from './edit-area/edit-area.component';
 
 // Module
 import { AppRoutingModule } from './app-routing.module';
@@ -40,7 +41,8 @@ import { InMemoryDataService } from './shared/service/in-memory-data.service';
     AppComponent,
     DashboardComponent,
     LoginComponent,
-    ListComponent
+    ListComponent,
+    EditAreaComponent
   ],
   imports: [
     BrowserModule,
