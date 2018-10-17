@@ -18,6 +18,8 @@ import {
   MatMenuModule
 } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 // Component
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -48,6 +50,8 @@ import { SharedModule } from './shared/shared.module';
     MatInputModule,
     MatGridListModule,
     MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule,
     AppRoutingModule,
     SharedModule,
     FormsModule,

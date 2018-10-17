@@ -2,20 +2,12 @@
   margin: 20px;
 }
 
-.dashboard-card {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
+table {
+  width: 100%;
 }
 
-.more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-}
-
-.dashboard-card-content {
-  text-align: center;
+.mat-header-cell {
+  font-size: 16px;
+  background-color: #607D8B;
+  color: #fff;
 }
