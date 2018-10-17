@@ -35,3 +35,23 @@
   }
 }
 
+// 左邊menu
+.mat-nav-list {
+  margin-top: 20px;
+
+  nav>a {
+    font-weight: 800;
+  }
+
+  .mat-icon {
+    position: absolute;
+    right: 10px;
+  }
+
+  // 第二層選單
+  .sub-menu {
+    list-style-type: none;
+    padding-left: 20px;
+  }
+}
+

@@ -20,6 +20,8 @@ export class DashboardComponent {
       map(result => result.matches)
     );
 
+  showSubMenu = false;
+
   constructor(
     private breakpointObserver: BreakpointObserver,
     private router: Router,
@@ -29,6 +31,16 @@ export class DashboardComponent {
   // 取得登入者名稱
   getCustName(): string {
     return this.storageSvc.getStorage('custName');
+  }
+
+  // 第二層選單開合
+  selectMenu(): void {
+    this.showSubMenu = !this.showSubMenu;
+  }
+
+  // 選單icon
+  getMenuIcon(): string {
+    return this.showSubMenu ? 'keyboard_arrow_up' : 'keyboard_arrow_down';
   }
 
   // 登出

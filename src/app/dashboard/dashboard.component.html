@@ -8,9 +8,25 @@
     [opened]="!(isHandset$ | async)">
     <mat-toolbar color="primary">Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <nav>
+        <a mat-list-item href="javascript:;" (click)="selectMenu()">
+          角色管理
+          <mat-icon>{{ getMenuIcon() }}</mat-icon>
+        </a>
+        <ul class="sub-menu" *ngIf="showSubMenu">
+          <li>
+            <a mat-list-item href="#">角色清單</a>
+          </li>
+          <li>
+            <a mat-list-item href="#">編輯角色</a>
+          </li>
+        </ul>
+      </nav>
+      <nav>
+        <a mat-list-item href="#">
+          其他
+        </a>
+      </nav>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
