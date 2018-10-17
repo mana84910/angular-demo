@@ -29,6 +29,11 @@ import { ListComponent } from './list/list.component';
 // Module
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+
+// Service
+import { InMemoryDataService } from './shared/service/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +60,11 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
