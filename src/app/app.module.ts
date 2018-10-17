@@ -20,6 +20,7 @@ import {
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
 
 // Component
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -59,6 +60,7 @@ import { InMemoryDataService } from './shared/service/in-memory-data.service';
     MatMenuModule,
     MatTableModule,
     MatPaginatorModule,
+    MatSelectModule,
     AppRoutingModule,
     SharedModule,
     FormsModule,

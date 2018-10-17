@@ -1,3 +1,52 @@
-<p>
-  edit-area works!
-</p>
+<div class="grid-container">
+  <h1 class="mat-h1">編輯角色</h1>
+
+  <!-- 新增功能 開始 -->
+  <form>
+
+    <mat-form-field class="add-name">
+      <input
+        matInput
+        placeholder="角色名稱"
+        maxlength="16"
+      >
+    </mat-form-field>
+
+    <mat-form-field class="add-age">
+      <mat-select placeholder="年齡">
+        <mat-option>None</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="add-job">
+      <mat-select placeholder="職稱">
+        <mat-option>None</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button
+      mat-flat-button
+      class="add-btn"
+    >
+      新增
+    </button>
+  </form>
+  <!-- 新增功能 結束 -->
+
+  <!-- 角色清單 開始 -->
+  <div>
+    <ul>
+      <li *ngFor="let person of dataSource">
+        <a>
+          <span>
+            {{ person.idData }}
+          </span>
+          {{ person.nameData }} , {{ person.ageData }} , {{ person.jobData }}
+        </a>
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </li>
+    </ul>
+  </div>
+  <!-- 角色清單 結束 -->
+
+</div>

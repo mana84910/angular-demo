@@ -1,0 +1,54 @@
+.grid-container {
+  margin: 20px;
+}
+
+.add-name, .add-age, .add-job {
+  width: 200px;
+  height: 40px;
+  margin: 0 20px 10px 0;
+}
+
+.add-job {
+  margin-bottom: 25px;
+}
+
+.add-btn {
+  height: 34px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  width: 380px;
+
+  li {
+    position: relative;
+    margin-bottom: 6px;
+    background-color: #eee;
+    font-size: 14px;
+    cursor: pointer;
+
+    span {
+      display: inline-block;
+      text-align: center;
+      width: 20px;
+      padding: 10px;
+      margin-right: 8px;
+      color: #fff;
+      background-color: #607D8B;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .mat-icon {
+      position: absolute;
+      right: 5px;
+      top:8px;
+      color: #607D8B;
+    }
+  }
+
+  li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+  }
+}
