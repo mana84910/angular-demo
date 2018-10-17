@@ -11,8 +11,10 @@ import {
   MatButtonModule,
   MatSidenavModule,
   MatIconModule,
-  MatListModule
+  MatListModule,
+  MatCardModule
 } from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
 
 // Component
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -36,6 +38,8 @@ import { LoginComponent } from './login/login.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatCardModule,
+    MatInputModule,
     AppRoutingModule,
   ],
   providers: [],
