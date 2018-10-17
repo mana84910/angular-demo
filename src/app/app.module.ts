@@ -17,6 +17,9 @@ import {
 // Component
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+// Module
+import { AppRoutingModule } from './app-routing.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
