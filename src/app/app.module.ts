@@ -18,10 +18,11 @@ import { MatInputModule } from '@angular/material/input';
 
 // Component
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
 
 // Module
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './login/login.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { LoginComponent } from './login/login.component';
     MatCardModule,
     MatInputModule,
     AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
