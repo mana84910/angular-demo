@@ -80,5 +80,10 @@ export class EditAreaComponent implements OnInit {
     job.value = '';
   }
 
+  // 刪除角色
+  delete(personId: number): void {
+    this.dataSource = this.dataSource.filter(p => p.id !== personId);
+    this.personSvc.deletePerson(personId).subscribe();
+  }
 
 }

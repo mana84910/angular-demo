@@ -52,6 +52,15 @@ export class PersonService {
     );
   }
 
+  // 刪除角色
+  deletePerson (personId: number): Observable<Person> {
+    const url = `${this.personsUrl}/${personId}`;
+
+    return this.http.delete<Person>(url, httpOptions).pipe(
+      catchError(this.handleError<Person>('deleteHero'))
+    );
+  }
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

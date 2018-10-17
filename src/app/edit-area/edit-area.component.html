@@ -56,7 +56,12 @@
           </span>
           {{ person.nameData }} , {{ person.ageData }} , {{ person.jobData }}
         </a>
-        <mat-icon matChipRemove>cancel</mat-icon>
+        <mat-icon
+          matChipRemove
+          (click)="delete(person.idData)"
+        >
+          cancel
+        </mat-icon>
       </li>
     </ul>
   </div>
