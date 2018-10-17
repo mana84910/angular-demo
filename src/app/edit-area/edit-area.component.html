@@ -2,22 +2,25 @@
   <h1 class="mat-h1">編輯角色</h1>
 
   <!-- 新增功能 開始 -->
-  <form>
+  <form
+    [formGroup]="editForm"
+    autocomplete = off
+  >
 
     <mat-form-field class="add-name">
       <input
         matInput
-        #addName
+        formControlName="addName"
         placeholder="角色名稱"
         maxlength="16"
       >
     </mat-form-field>
 
     <mat-form-field class="add-age">
-      <mat-select placeholder="年齡" #addAge>
+      <mat-select placeholder="年齡" formControlName="addAge">
         <mat-option
           *ngFor="let age of ages"
-          value="age"
+          [value]="age"
         >
           {{ age }}
         </mat-option>
@@ -25,10 +28,10 @@
     </mat-form-field>
 
     <mat-form-field class="add-job">
-      <mat-select placeholder="職稱" #addJob>
+      <mat-select placeholder="職稱" formControlName="addJob">
         <mat-option
           *ngFor="let job of jobs"
-          value="job"
+          [value]="job"
         >
           {{ job }}
         </mat-option>
@@ -38,8 +41,8 @@
     <button
       mat-flat-button
       class="add-btn"
-      [disabled]="!addName.value"
-      (click)="addPerson(addName, addAge, addJob)"
+      [disabled]="editForm.invalid"
+      (click)="addPerson()"
     >
       新增
     </button>

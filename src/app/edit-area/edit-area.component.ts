@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 // Class
 import { PersonData } from '../shared/classes/person-data';
@@ -16,6 +17,9 @@ import { Person } from '../shared/interface/person';
 })
 export class EditAreaComponent implements OnInit {
 
+  // 表單
+  editForm: FormGroup = null;
+
   // 年齡下拉選單
   ages: Number[] = [];
 
@@ -26,13 +30,32 @@ export class EditAreaComponent implements OnInit {
   dataSource: PersonData[] = [];
 
   constructor(
+    private fb: FormBuilder,
     private personSvc: PersonService
   ) { }
 
   ngOnInit() {
+
+    // 初始化表單
+    this.editForm = this.initEditForm();
+
+    // 取得資料
     this.getAge();
     this.getJobTitle();
     this.getPersons();
+
+  }
+
+  // 初始化表單
+  initEditForm(): FormGroup {
+    return this.fb.group({
+      addName: [
+        '',
+        [ Validators.required ]
+      ],
+      addAge: null,
+      addJob: ''
+    });
   }
 
   // 取得年齡下拉選單
@@ -60,13 +83,13 @@ export class EditAreaComponent implements OnInit {
   }
 
   // 新增角色
-  addPerson(name: any, age: any, job: any): void {
-
+  addPerson(): void {
+    const data = this.editForm.getRawValue();
     const per: Person = {
       id: null,
-      name: name.value,
-      age: age.value,
-      jobTitle: job.value
+      name: data.addName,
+      age: data.addAge,
+      jobTitle: data.addJob
     };
 
     this.personSvc.addPerson(per)
@@ -75,9 +98,17 @@ export class EditAreaComponent implements OnInit {
     });
 
     // 清空欄位
-    name.value = '';
-    age.value = '';
-    job.value = '';
+    this.reset();
+  }
+
+  // reset
+  reset(): void {
+    this.editForm.patchValue({
+      addName: '',
+      addAge: null,
+      addJob: ''
+    });
+    this.editForm.markAsUntouched();
   }
 
   // 刪除角色
