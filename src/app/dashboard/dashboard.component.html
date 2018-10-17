@@ -24,6 +24,21 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>angular-demo</span>
+
+      <!-- 右上user開始 -->
+      <div class="user-icon">
+        <span>
+          <mat-icon>face</mat-icon>
+          登入者: {{ getCustName() }}
+        </span>
+        <span>|</span>
+        <span (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          登出
+        </span>
+      </div>
+      <!-- 右上user結束 -->
+
     </mat-toolbar>
     <!-- Add Content Here -->
   </mat-sidenav-content>

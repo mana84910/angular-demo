@@ -3,6 +3,11 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import { Router } from '@angular/router';
+
+// Service
+import { StorageService } from '../shared/service/storage.service';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -15,6 +20,24 @@ export class DashboardComponent {
       map(result => result.matches)
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private router: Router,
+    private storageSvc: StorageService,
+  ) {}
+
+  // 取得登入者名稱
+  getCustName(): string {
+    return this.storageSvc.getStorage('custName');
+  }
+
+  // 登出
+  logout(): void {
+    this.router.navigate([
+      'login'
+    ]);
+
+    this.storageSvc.clear();
+  }
 
   }
