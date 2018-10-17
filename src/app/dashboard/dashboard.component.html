@@ -15,7 +15,7 @@
         </a>
         <ul class="sub-menu" *ngIf="showSubMenu">
           <li>
-            <a mat-list-item href="#">角色清單</a>
+            <a mat-list-item routerLink="/dashboard/list">角色清單</a>
           </li>
           <li>
             <a mat-list-item href="#">編輯角色</a>
@@ -56,6 +56,9 @@
       <!-- 右上user結束 -->
 
     </mat-toolbar>
+
     <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+
   </mat-sidenav-content>
 </mat-sidenav-container>
