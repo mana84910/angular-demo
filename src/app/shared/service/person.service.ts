@@ -6,6 +6,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Person } from '../interface/person';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +42,13 @@ export class PersonService {
     return this.http.get<String[]>('api/jobTitle')
     .pipe(
       catchError(this.handleError('getJobTitle', []))
+    );
+  }
+
+  // 新增角色
+  addPerson (person: Person): Observable<Person> {
+    return this.http.post<Person>(this.personsUrl, person, httpOptions).pipe(
+      catchError(this.handleError<Person>('addPerson'))
     );
   }
 

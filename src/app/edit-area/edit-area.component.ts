@@ -6,6 +6,9 @@ import { PersonData } from '../shared/classes/person-data';
 // Service
 import { PersonService } from '../shared/service/person.service';
 
+// interface
+import { Person } from '../shared/interface/person';
+
 @Component({
   selector: 'app-edit-area',
   templateUrl: './edit-area.component.html',
@@ -55,5 +58,27 @@ export class EditAreaComponent implements OnInit {
       this.dataSource = res.map(item => new PersonData(item));
     });
   }
+
+  // 新增角色
+  addPerson(name: any, age: any, job: any): void {
+
+    const per: Person = {
+      id: null,
+      name: name.value,
+      age: age.value,
+      jobTitle: job.value
+    };
+
+    this.personSvc.addPerson(per)
+    .subscribe(res => {
+      this.dataSource.push(new PersonData(res));
+    });
+
+    // 清空欄位
+    name.value = '';
+    age.value = '';
+    job.value = '';
+  }
+
 
 }

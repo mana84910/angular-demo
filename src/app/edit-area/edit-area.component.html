@@ -7,13 +7,14 @@
     <mat-form-field class="add-name">
       <input
         matInput
+        #addName
         placeholder="角色名稱"
         maxlength="16"
       >
     </mat-form-field>
 
     <mat-form-field class="add-age">
-      <mat-select placeholder="年齡">
+      <mat-select placeholder="年齡" #addAge>
         <mat-option
           *ngFor="let age of ages"
           value="age"
@@ -24,7 +25,7 @@
     </mat-form-field>
 
     <mat-form-field class="add-job">
-      <mat-select placeholder="職稱">
+      <mat-select placeholder="職稱" #addJob>
         <mat-option
           *ngFor="let job of jobs"
           value="job"
@@ -37,6 +38,8 @@
     <button
       mat-flat-button
       class="add-btn"
+      [disabled]="!addName.value"
+      (click)="addPerson(addName, addAge, addJob)"
     >
       新增
     </button>
