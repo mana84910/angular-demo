@@ -1,0 +1,41 @@
+<div class="login-area">
+  <mat-card>
+
+    <h1 class="mat-h1">角色管理系統</h1>
+
+    <form
+      class="example-form"
+      [formGroup]="loginForm"
+      (submit)="login()"
+      autocomplete = off
+    >
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="登入者名稱"
+          maxlength="16"
+          formControlName="custName"
+        >
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="密碼"
+          type="password"
+          maxlength="16"
+          formControlName="loginPassWord"
+        >
+      </mat-form-field>
+
+      <button
+        mat-flat-button
+        [disabled]="loginForm.invalid"
+        type="submit"
+      >
+        登入
+      </button>
+    </form>
+
+  </mat-card>
+</div>

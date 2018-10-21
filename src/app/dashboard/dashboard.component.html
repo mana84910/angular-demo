@@ -1,0 +1,59 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+      <nav>
+        <a mat-list-item href="javascript:;" (click)="selectMenu()">
+          角色管理
+          <mat-icon>{{ getMenuIcon() }}</mat-icon>
+        </a>
+        <ul class="sub-menu" *ngIf="showSubMenu">
+          <li>
+            <a mat-list-item routerLink="/dashboard/list">角色清單</a>
+          </li>
+          <li>
+            <a mat-list-item routerLink="/dashboard/edit-area">編輯角色</a>
+          </li>
+        </ul>
+      </nav>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>angular-demo</span>
+
+      <!-- 右上user開始 -->
+      <div class="user-icon">
+        <span>
+          <mat-icon>face</mat-icon>
+          登入者: {{ getCustName() }}
+        </span>
+        <span>|</span>
+        <span (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          登出
+        </span>
+      </div>
+      <!-- 右上user結束 -->
+
+    </mat-toolbar>
+
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

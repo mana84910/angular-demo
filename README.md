@@ -1,26 +1,42 @@
 # AngularDemo
 
+此Demo主要使用`Angular6`、`ES6`等技術。
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.4.
 
-## Development server
+## 必需安裝的項目
+* [Node.js](https://nodejs.org)
+* [npm](https://www.npmjs.com)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+安裝方式可前往其官網查看。
+以上套件建議使用全域安裝。
 
-## Code scaffolding
+# 使用方式
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 第一次安裝
+`git clone`此Demo下來之後，在此Demo的根目錄下輸入以下指令：
 
-## Build
+```shell
+$ npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+此指令會幫我們安裝所有此Demo所需的套件。
 
-## Running unit tests
+如果想要將此Demo跑在`localhost`上的話，則輸入以下指令：
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```shell
+$ npm start
+```
 
-## Running end-to-end tests
+稍等一下，當畫面上出現`Compiled successfully.`的Log時，就可以打開瀏覽器，在網址列輸入`localhost:4200`即可。
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## 已安裝過
+直接於此Demo的根目錄下輸入以下指令：
+
+```shell
+$ npm start
+```
+畫面上出現`Compiled successfully.`的Log時，就可以打開瀏覽器，在網址列輸入`localhost:4200`即可。
 
 ## Further help
 

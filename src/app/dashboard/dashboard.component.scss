@@ -1,0 +1,58 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+// 右上登入者/登出小圖示
+.user-icon {
+  position: absolute;
+  right: 16px;
+
+  // 分隔線
+  span:nth-child(2) {
+    padding: 0 40px 0 16px;
+  }
+  // icon位置設定
+  span {
+    position: relative;
+    .mat-icon {
+      position: absolute;
+      top: 1px;
+      left: -24px;
+    }
+  }
+  // 登出
+  span:nth-child(3) {
+    cursor: pointer;
+  }
+}
+
+// 左邊menu
+.mat-nav-list {
+  margin-top: 20px;
+
+  nav>a {
+    font-weight: 800;
+  }
+
+  .mat-icon {
+    position: absolute;
+    right: 10px;
+  }
+
+  // 第二層選單
+  .sub-menu {
+    list-style-type: none;
+    padding-left: 20px;
+  }
+}
+

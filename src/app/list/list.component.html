@@ -1,0 +1,35 @@
+<h1 class="mat-h1">角色清單</h1>
+
+<div class="mat-elevation-z8">
+  <mat-table [dataSource]="dataSource">
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Age Column -->
+    <ng-container matColumnDef="age">
+      <mat-header-cell *matHeaderCellDef> Age </mat-header-cell>
+      <mat-cell mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
+    </ng-container>
+
+    <!-- Job Title Column -->
+    <ng-container matColumnDef="jobTitle">
+      <mat-header-cell *matHeaderCellDef> Job Title </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.jobTitle}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
